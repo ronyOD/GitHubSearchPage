@@ -1,6 +1,6 @@
 # GitHubSearchPage
 
-MVC with AngularJS -
+MVC.NET with AngularJS -
 This web app allows you to search GitHub Repositories.
 Simply enter your search word, and hit search.
 You can also bookmark your favorite repositories by clicking the Bookmark icon under each repository, 
