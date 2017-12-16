@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - GitHub Search Page</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+    <!-- App Script -->
+    <script src="~/Scripts/app.js"></script>
+</head>
+<body style="width: 100%; height: 100%;">
+    <div class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("GitHub Repositories Search Page", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("My Bookmarks", "Bookmarks", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        <div class="container body-content">
+            @RenderBody()
+        </div>
+</body>
+</html>

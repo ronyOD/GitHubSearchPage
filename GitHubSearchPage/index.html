@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>GitHub Repositories Search</title>
+
+    <script src="Scripts/angular.min.js"></script>
+    <!-- Application Script -->
+    <script src="Client/app.js"></script>
+    <!-- Controller -->
+    <script src="Client/GitHubCtrl.js"></script>
+    <!-- Services -->
+    <script src="Client/GitHubService.js"></script>
+    <!-- CSS -->
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+
+<body ng-app="GitHubApp" style="width: 100%; height: 100%;">
+    <div ng-controller="GitHubCtrl">
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="" ng-click="GoHome()">
+                        <img src="/Content/images/GitHub-Mark-Light-32px.png" alt="logo" style="margin-top:-7px;"/>
+                    </a>
+                </div>
+                <form ng-submit="Search(searchString)" class="navbar-form navbar-left" role="search">
+                        <input type="text" ng-model="searchString" class="form-control" placeholder="Search" />
+                        <button type="submit" class="btn btn-default">Search</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="" ng-click="GetBookmarks()"><font face="verdana">My Bookmarks</font></a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div ng-repeat="repository in Repositories | orderBy: 'id'">
+            <div class="{{repository.RepoId}}">
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <img class="img-fluid img-thumbnail" ng-src="{{repository.RepoAvatarUrl}}" alt="" height="150" width="150" />
+                    <div style="margin-top: 20px; margin-bottom:20px;">
+                        Name: {{repository.RepoName}}
+                        <button ng-hide="hideButton" style="margin-left: 10px;" class="btn btn-success"
+                                ng-click="AddBookmark(repository.RepoId)">
+                            <span class="glyphicon glyphicon-bookmark"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

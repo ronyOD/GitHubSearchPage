@@ -1,0 +1,30 @@
+﻿@model IEnumerable<GitHubSearchPage.Models.RepositoryViewModel>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Showing results for "@ViewBag.Message"</h2>
+
+<div class="container">
+
+    <div class="row text-center text-left">
+
+    @foreach (var item in Model)
+    {
+        <div class="@item.RepoId">
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <img class="img-fluid img-thumbnail" src=@item.RepoAvatarUrl alt="" height="150" width="150" />
+                <div style="margin-top:20px; margin-bottom:20px;">
+                    Name: @item.RepoName
+                    <button style="margin-left: 10px;" class="btn btn-success"
+                            onclick="addBookmark(@item.RepoId)">
+                        <span class="glyphicon glyphicon-bookmark"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+
+    </div>
+</div>
